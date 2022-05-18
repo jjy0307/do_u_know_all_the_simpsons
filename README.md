@@ -46,6 +46,7 @@
 ****멤버구성 : 김민재, 전진영,  윤가현, 이승태****
 
 **레이아웃 : (figma 사진 첨부)**
+![Do u know all the Simpson's_ 와이어 프레임](https://user-images.githubusercontent.com/90381057/168961522-f7211a85-df7d-45fa-b855-0a8fa367a2cf.png)
 
 **API 설계**
 
