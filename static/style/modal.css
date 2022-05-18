@@ -38,9 +38,14 @@
     text-align: center;
 }
 
-.img {
+.modal_img {
     width: 512px;
     height: 576px;
+}
+
+.open-popup {
+    width: 225px;
+    height: 225px;
 }
 
 .close-popup {
@@ -53,11 +58,18 @@
     cursor: pointer;
 }
 
+.close-popup:hover,
+.close-popup:focus {
+    color: gray;
+    text-decoration: none;
+}
+
 .close1:after {
     content: "\00d7";
     font-size: 20pt;
     line-height: 50px;
 }
+
 .text {
     text-align: left;
     margin-left: 20px;
@@ -66,5 +78,5 @@
 .comment {
     position: absolute;
     display: flex;
-    bottom: 0px;
+    bottom: 0;
 }
