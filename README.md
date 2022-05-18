@@ -1,6 +1,6 @@
-# Object-Recognition
 # Do u know all the Simpson's?
-Object Recognition Project(22.5.18 ~ 22.5.25)
+- **팀 명 : 강화성공**
+- ****개발 기간 : 22.05.19.목 ~ 22.05. 24.화****
 
 - 프로젝트 미리보기
     
@@ -39,3 +39,16 @@ Object Recognition Project(22.5.18 ~ 22.5.25)
     - jQuery를 제외한 javascript를 이용한 프론트엔드 구현
     - Flask API 모듈화
     - 다양한 모델로 학습, 성능결과를 benchmark(비교)
+
+
+- ****멤버구성 : 김민재, 전진영,  윤가현, 이승태****
+- - **레이아웃 : (figma 사진 첨부)**
+- - **API 설계**
+- **[ 필수기능 ]**
+- 1. 사진을 웹사이트에서 보내기 POST
+- 2. 사진을 웹사이트에서 보내주었을때 카테고리를 GET으로 가져오기
+- **[ 추가기능 ]**
+1. 많이 조회된 캐릭터를 GET으로 가져오기
+(1번을 그래프로 표현하기 : 어떤 캐릭터가 가장 많이조회되었는지, 알려지지않은캐릭터가 많을것이라 예상됨)
+[API 설계하기](https://www.notion.so/dc62b6f1a60d4d02b291a708877bd773)
+[TO DO LIST  💨](https://www.notion.so/db79c0f1755342ec90857ef74af0914b)
