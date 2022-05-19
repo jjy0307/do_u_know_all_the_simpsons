@@ -9,17 +9,21 @@ app = Flask(__name__)
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-# Use the application default credentials
-cred = credentials.ApplicationDefault()
-firebase_admin.initialize_app(cred, {
-  'projectId': "1:95927745266:web:9ce88f8d96b5c338846e6b",
-})
-
+cred = credentials.Certificate('key/rs-object-recognition-firebase-adminsdk-r5b1b-9fae1668a5.json')
+firebase_admin.initialize_app(cred)
 FBdb = firestore.client()
 
 @app.route('/')
 def MainPage():
     return render_template('mainpage.html')
+
+@app.route('/recognize_img', methods=["POST"])
+def recognize():
+    print(request.form)
+    a = request.form(['Img_Path'])
+    print(a)
+    return None
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
