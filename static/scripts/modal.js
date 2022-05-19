@@ -24,3 +24,39 @@ for (var j = 0; j < btns.length; j++) {
     funcs[j]();
 }
 
+function comment_get() {
+    $('#comment-box').empty()
+    $.ajax({
+        type: 'GET',
+        url: '/modal/comment',
+        data: {},
+        success: function (response) {
+            let comments = response['comments']
+            for (let i = 0; i < comments.length; i++) {
+                let comment = comments[i]['comment']
+
+                let temp_html = `<p>${comment}</p>`
+                $('#comment-box').append(temp_html)
+            }
+
+        }
+    })
+}
+
+function comment_save() {
+    let comment = $('#comment-detail').val()
+
+    $.ajax({
+        type: 'POST',
+        url: '/modal/comment',
+        data: {
+            comment_give: comment
+        },
+        success: function (response) {
+            console.log(response['msg'])
+        }
+    })
+    comment_get()
+}
+
+

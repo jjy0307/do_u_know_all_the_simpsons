@@ -4,11 +4,14 @@
 
     <meta charset="UTF-8">
     <title>modal-test</title>
+
     <!--style 파일 불러오기!-->
     <link href="/static/style/modal.css" rel="stylesheet" type="text/css"/>
 
     <!--js 파일 불러오기-->
     <script defer src="/static/scripts/modal.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -27,12 +30,14 @@
                 <p><b>심슨 이름&nbsp;</b> : 바트 심슨</p>
                 <p><b>심슨 특징&nbsp;</b> : 뾰족머리</p>
                 <p><b>캐릭터 한줄 평</b></p>
-                <li></li>
+                <div id="comment-box">
+                    <p></p>
+                </div>
             </div>
             <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
+                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-detail"
                        placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                <button style="cursor: pointer; width: 64px; border-radius: 0" onclick="comment_save">게시</button>
             </div>
         </div>
     </div>

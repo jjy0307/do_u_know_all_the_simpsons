@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Object-Recognition.iml" filepath="$PROJECT_DIR$/.idea/Object-Recognition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/simpson.iml" filepath="$PROJECT_DIR$/.idea/simpson.iml" />
     </modules>
   </component>
 </project>
