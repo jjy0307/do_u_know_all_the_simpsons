@@ -9,13 +9,11 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import storage
 
-def simpson(img_name):
+def simpson(img_name, cred):
     #firebase에 접속합니다
-    cred = credentials.Certificate('key/rs-object-recognition-firebase-adminsdk-r5b1b-9fae1668a5.json')
-    firebase_admin.initialize_app(cred)
     app = firebase_admin.initialize_app(cred, {
         'storageBucket': 'rs-object-recognition.appspot.com'
-    }, name='upload-img')
+    }, name='upload-images')
     bucket = storage.bucket(app=app)
     #firebase이미지 불러와서
     blob = bucket.get_blob(img_name) #blob데이터 형식으로 불러옵니다
