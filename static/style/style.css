@@ -1,0 +1,9 @@
+/* style 모아둔 곳 */
+/* 초기화 */
+@import "reset.css";
+@import "variables.css";
+
+/* 공통사항 */
+
+/* 화면 */
+@import "screens/mainpage.css"

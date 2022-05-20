@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../static/style/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do you know all the Simpson's? We doo!</title>
+  </head>
+  <body>
+    <div class="Center_Box">
+      <div class="CB_Header">
+        <i class="fa-solid fa-magnifying-glass"></i> Simpson Search Page
+      </div>
+      <div class="CB_Main">
+        <div class="CBM_Img">
+          <img src="../static/images/Simpsons logo.png" id="DropImg" />
+          <span id="IfDropInvisible"
+            >사진을 드래그 하거나 하단에 url 경로 작성 후 이미지로 사진 찾기를
+            눌러주세요</span
+          >
+          <input
+            type="file"
+            name="name"
+            id="CBMI_Input"
+            class="CBMI_Input"
+            accept="image/*"
+          />
+        </div>
+        <div class="CBM_Buttons">
+          <button class="CBMB_SearchByImg" id="Search-Image" type="button">
+            이미지로 사진 찾기
+          </button>
+          <button class="CBMB_SearchByName" type="button">
+            이름으로 사진 찾기
+          </button>
+        </div>
+<!--        <images id="Test-Image"/>-->
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/a77969e492.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="static/scripts/firebase.js"></script>
+  <script src="static/scripts/mainpage.js"></script>
+</html>
