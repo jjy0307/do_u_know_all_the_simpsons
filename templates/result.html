@@ -10,11 +10,11 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- JS -->
-    <script type="script" src="../static/scripts/result.js"></script>
+    <script type="module" src="static/scripts/result.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../static/style/result.css" type="text/css">
+    <link rel="stylesheet" href="static/style/result.css" type="text/css">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,11 +22,12 @@
 </head>
 <body>
 <div class="result">
-    <img class="result-img" src="../static/images/Simpson.jpg">
+    <img class="result-img" src="static/images/Simpson.jpg">
     <div class="input-group mb-3">
-        <input id="comment" type="text" class="form-control" placeholder="캐릭터에 대한 한 줄 평을 입력해주세요!" aria-label="캐릭터에 대한 한 줄 평을 입력해주세요!"
+        <input id="comment" type="text" class="form-control" placeholder="캐릭터에 대한 한 줄 평을 입력해주세요!"
+               aria-label="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" id="button-addon2" onclick="write()">작성</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="ABC()">작성</button>
     </div>
     <div class="bar-chart">
         <canvas id="bar-chart"></canvas>
@@ -37,4 +38,5 @@
     </div>
 </div>
 </body>
+<script type="script" src="static/scripts/result.js"></script>
 </html>
