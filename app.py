@@ -14,25 +14,33 @@ def home():
     return render_template('modal.html')
 
 
-@app.route('/modal/comment', methods=["GET"])
-def comment_get():
-    comment = request.args.get('id')
-    comments = list(db.comments.find({'comment': comment}, {'_id': False}))
-
-    msg = 'comment_listing is called'
-    return jsonify({'comments': comments, 'msg': msg})
-
-
-@app.route("/modal/comment", methods=["POST"])
+@app.route("/comments", methods=["POST"])
 def comment_post():
     comment_receive = request.form['comment_give']
-    comment_info = {
-        'comment': comment_receive,
-    }
-    db.comments.insert_one(comment_info)
+    comments_list = list(db.comments.find({}, {'_id': False}))
+    count = len(comments_list) + 1
 
-    msg = 'comment_save is called'
-    return jsonify({'msg': msg})
+    doc = {
+        'num': count,
+        'comment': comment_receive
+    }
+
+    db.comments.insert_one(doc)
+
+    return jsonify({'msg': '작성 완료!'})
+
+
+@app.route("/comments", methods=["GET"])
+def comment_get():
+    comments_list = list(db.comments.find({}, {'_id': False}))
+    return jsonify({'comments': comments_list})
+
+@app.route("/delete", methods=["POST"])
+def comment_del():
+    num = request.form['count']
+    db.comments.delete_one({'num': int(num)})
+
+    return jsonify({'msg': '삭제 완료!'})
 
 
 if __name__ == '__main__':

@@ -80,3 +80,12 @@
     display: flex;
     bottom: 0;
 }
+
+.delete-btn {
+    position: absolute;
+    right: 0;
+    width: 64px;
+    border-radius: 0;
+    cursor: pointer;
+
+}
