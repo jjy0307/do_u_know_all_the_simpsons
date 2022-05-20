@@ -106,12 +106,17 @@ function searchImage() {
 
   let formData = new FormData();
   formData.append("Img_Path", fileName)
+  formData.append("haha", "sexy")
   axios.post('/recognize_img', formData, {
       header: {
           "Content-Type": "multipart/form-data",
       }
     })
       .then(function (response) {
+        console.log(response)
+        if (response['result'] == 'success') {
+          alert("Your picture confirmed as " + response['rec_result'])
+        }
     }).catch(function (error) {
     })
 }
