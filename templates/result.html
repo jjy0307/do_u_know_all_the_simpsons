@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +12,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- JS -->
-    <script type="module" src="static/scripts/result.js"></script>
+<!--    <script type="module" src="static/scripts/result.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- CSS -->
@@ -27,7 +29,7 @@
         <input id="comment" type="text" class="form-control" placeholder="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-label="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="ABC()">작성</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="review()">작성</button>
     </div>
     <div class="bar-chart">
         <canvas id="bar-chart"></canvas>
@@ -38,5 +40,5 @@
     </div>
 </div>
 </body>
-<script type="script" src="static/scripts/result.js"></script>
+<script src="static/scripts/result.js"></script>
 </html>

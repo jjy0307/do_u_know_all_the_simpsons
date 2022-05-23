@@ -1,4 +1,4 @@
-function ABC() {
+function review() {
     let evaluation = $("#comment").val()
     $.ajax({
         type: "POST",
@@ -14,19 +14,29 @@ function ABC() {
     })
 }
 
+function chart() {
+    // let result_chart = $("#bar-chart").val()
+    $.ajax({
+        type: "GET",
+        url: "/logs",
+        data: {},
+        success: function (response) {
+            if (response['categorized_results'], response['']);
+            chart();
+        }
+    })
+}
+
+
 new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
     data: {
-        labels: ["심슨1", "심슨2", "심슨3", "심슨4", "심슨5"],
+        labels: [['character_name']],
         datasets: [
             {
                 label: "Population (millions)",
-                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                data: [1,
-                    1,
-                    1,
-                    1,
-                    1]
+                backgroundColor: ["#3e95cd"],
+                data: ['character_count']
             }
         ]
     },
