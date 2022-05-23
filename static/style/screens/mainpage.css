@@ -1,0 +1,77 @@
+.Center_Box {
+    width: 100%;
+    height: 100vh;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.CB_Header {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.CB_Main {
+    border: 2px solid black;
+    padding: 30px;
+    height: 50%;
+    width: 60%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.CBM_Img {
+    width: 100%;
+    height:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.CBM_Img > img {
+    width: 70%;
+    height: 100%;
+}
+
+.CBM_Img > span {
+    position: absolute;
+    width: 60%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+    color: rgb(0, 0, 0, 0.35);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.CBMI_Input {
+    width: 69%;
+    min-height: 30px;
+    margin-top: 2%;
+}
+
+.CBM_Buttons {
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 30px;
+}
+
+.CBM_Buttons > button {
+    width: 45%;
+    background-color: white;
+    font-size: 20px;
+    padding: 8px 15px;
+    border: 1px solid rgb(0, 0, 0, 0.5);
+}
