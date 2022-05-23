@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from run_model import simpson
+import requests
 import certifi  #만약 몽고 디비 돌릴때 문제가 없으셨다면 해당 줄은 주석 처리 하세요.
 client = MongoClient('mongodb+srv://test:sparta@cluster0.0mzan.mongodb.net/Cluster0?retryWrites=true&w=majority' ,tlsCAFile=certifi.where())
 db = client.Simpson
@@ -27,10 +28,83 @@ def recognize():
     result = simpson(img_name, cred)
     doc = {'img_name': img_name, 'rec_result': result}
     db.characters.insert_one(doc)
-    return jsonify({'result': 'success', 'rec_result': result})
+    return jsonify({'result': 'success', 'rec_result': str(result)})
 
 
+#가현님 부분
+@app.route('/wiki')
+def wiki():
+    return render_template("wiki.html")
 
+
+#민재님 부분
+@app.route('/result')
+def result():
+    return render_template('result.html')
+
+
+@app.route('/comment', methods=['POST'])
+def comment():
+    result_comment = request.form['comment']
+    db.comment.insert_one({
+        'comments': result_comment
+    })
+    return jsonify({'result': 'success'})
+
+
+@app.route('/token')
+def token():
+    token_receive = request.cookies.get('result')
+    print(token_receive)
+    user_info = db.users.find_one({"categorized_results": payload['categorized_results']})
+
+    return render_template('result.html', categorized_results=user_info["categorized_results"])
+
+
+@app.route('/logs', methods=['GET'])
+def chart():
+    simpsons = list(db.characters.find({}, {'_id': False}))
+    character_count = []
+    for name in simpsons:
+        if name["character_name"] in character_count:
+            character_count[name["character_name"]] += 1
+        else:
+            character_count[name["character_name"]] = 1
+    return jsonify({'result': 'success', 'categorized_results': 'character_name', '전체 심슨 캐릭터 조회 횟수': 'character_count'})
+
+#진영님 부분
+@app.route('/modal')
+def modal():
+    return render_template('modal.html')
+
+
+@app.route("/comments", methods=["POST"])
+def comment_post():
+    comment_receive = request.form['comment_give']
+    comments_list = list(db.comments.find({}, {'_id': False}))
+    count = len(comments_list) + 1
+
+    doc = {
+        'num': count,
+        'comment': comment_receive
+    }
+
+    db.comments.insert_one(doc)
+
+    return jsonify({'msg': '작성 완료!'})
+
+
+@app.route("/comments", methods=["GET"])
+def comment_get():
+    comments_list = list(db.comments.find({}, {'_id': False}))
+    return jsonify({'comments': comments_list})
+
+@app.route("/delete", methods=["POST"])
+def comment_del():
+    num = request.form['count']
+    db.comments.delete_one({'num': int(num)})
+
+    return jsonify({'msg': '삭제 완료!'})
 
 
 

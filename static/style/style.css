@@ -6,4 +6,7 @@
 /* 공통사항 */
 
 /* 화면 */
-@import "screens/mainpage.css"
+@import "screens/mainpage.css";
+@import "screens/wiki.css";
+/*@import "screens/result.css";*/
+@import "screens/modal.css";

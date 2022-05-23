@@ -1,0 +1,28 @@
+.searchBox {
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+}
+
+.listBox {
+    background-color: blue;
+}
+
+.listInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: yellow;
+    margin: 10px 5px;
+    padding: 4px;
+    font-weight: bold;
+}
+.simpson_images {
+    display: flex;
+    background-color: red;
+    width: 130px;
+    height: 200px;
+}
+.country {
+    font-weight: bold;
+}

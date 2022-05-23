@@ -114,8 +114,10 @@ function searchImage() {
     })
       .then(function (response) {
         console.log(response)
-        if (response['result'] == 'success') {
-          alert("Your picture confirmed as " + response['rec_result'])
+        if (response['data']['result'] == 'success') {
+          // alert("Your picture confirmed as " + response['data']['rec_result']);
+          document.cookie = "result=" + response['data']['rec_result']
+          window.location.href = '/result'
         }
     }).catch(function (error) {
     })
