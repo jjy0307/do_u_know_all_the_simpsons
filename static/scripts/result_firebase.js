@@ -29,8 +29,19 @@ window.addEventListener('DOMContentLoaded', function ()
 )
 
 function getCookie() {
-    const result = document.cookie.split(';')[1].split('result=')[1]
-    const img = document.cookie.split(';')[2].split('img_name=')[1]
+    let cookies = document.cookie.split(';')
+    let img = null
+    let result = null
+    for (let i=0; i<cookies.length; i++) {
+        let cookie = cookies[i].trim()
+        if (cookie.startsWith('result=')) {
+            result = cookie.split('=')[1]
+        } else if (cookie.startsWith('img_name=')) {
+            img = cookie.split('=')[1]
+        }
+    }
+    // const result = document.cookie.split(';')[1].split('result=')[1]
+    // const img = document.cookie.split(';')[2].split('img_name=')[1]
     const changeText = document.getElementById("result-text");
     changeText.innerText = "분류 결과 " + result + "로 판명되었습니다"
     getDownloadURL(ref(storage, img))
