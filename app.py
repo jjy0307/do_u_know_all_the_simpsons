@@ -25,10 +25,11 @@ def MainPage():
 @app.route('/recognize_img', methods=["POST"])
 def recognize():
     img_name = request.form['Img_Path']
+    print(img_name)
     result = simpson(img_name, cred)
     doc = {'img_name': img_name, 'rec_result': result}
     db.characters.insert_one(doc)
-    return jsonify({'result': 'success', 'rec_result': str(result)})
+    return jsonify({'result': 'success', 'rec_result': str(result), 'rec_img': str(img_name)})
 
 
 #가현님 부분
@@ -40,36 +41,34 @@ def wiki():
 #민재님 부분
 @app.route('/result')
 def result():
-    return render_template('result.html')
+    simpsons = list(db.characters.find({}, {'_id': False}))
+    character_count = {}
+    character_list = []
+    character_list_count = []
+    for name in simpsons:
+        if name["rec_result"] in character_count:
+            character_count[name["rec_result"]] += 1
+        else:
+            character_count[name["rec_result"]] = 1
+    for cc in character_count:
+        character_list.append(str(cc))
+        character_list_count.append(character_count[cc])
+    return render_template('result.html', labels=character_list, datas=character_list_count)
 
 
 @app.route('/comment', methods=['POST'])
 def comment():
     result_comment = request.form['comment']
-    db.comment.insert_one({
-        'comments': result_comment
+    character_name = request.form['result']
+    db.comments.insert_one({
+        'comments': result_comment,
+        'character_name': character_name
     })
     return jsonify({'result': 'success'})
 
 
-@app.route('/token')
-def token():
-    token_receive = request.cookies.get('result')
-    print(token_receive)
-    user_info = db.users.find_one({"categorized_results": payload['categorized_results']})
-
-    return render_template('result.html', categorized_results=user_info["categorized_results"])
-
-
 @app.route('/logs', methods=['GET'])
 def chart():
-    simpsons = list(db.characters.find({}, {'_id': False}))
-    character_count = []
-    for name in simpsons:
-        if name["character_name"] in character_count:
-            character_count[name["character_name"]] += 1
-        else:
-            character_count[name["character_name"]] = 1
     return jsonify({'result': 'success', 'categorized_results': 'character_name', '전체 심슨 캐릭터 조회 횟수': 'character_count'})
 
 #진영님 부분

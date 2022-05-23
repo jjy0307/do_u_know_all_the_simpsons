@@ -113,10 +113,10 @@ function searchImage() {
       }
     })
       .then(function (response) {
-        console.log(response)
         if (response['data']['result'] == 'success') {
           // alert("Your picture confirmed as " + response['data']['rec_result']);
           document.cookie = "result=" + response['data']['rec_result']
+          document.cookie = "img_name=" + response['data']['rec_img']
           window.location.href = '/result'
         }
     }).catch(function (error) {

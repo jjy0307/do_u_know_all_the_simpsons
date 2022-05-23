@@ -12,7 +12,6 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- JS -->
-<!--    <script type="module" src="static/scripts/result.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- CSS -->
@@ -24,21 +23,58 @@
 </head>
 <body>
 <div class="result">
-    <img class="result-img" src="static/images/Simpson.jpg">
+    <img class="result-img" src="static/images/Simpson.jpg" id="result-img">
+    <div class="result-text">
+        <span id="result-text">
+            이런 분류 결과가 없군요
+        </span>
+    </div>
     <div class="input-group mb-3">
         <input id="comment" type="text" class="form-control" placeholder="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-label="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="review()">작성</button>
+        <button onclick="review()" class="btn btn-outline-secondary" type="button" id="button-addon2" >작성</button>
     </div>
     <div class="bar-chart">
         <canvas id="bar-chart"></canvas>
     </div>
     <div class="button">
-        <button type="button" class="btn btn-primary btn-sm">다시하기</button>
-        <button type="button" class="btn btn-primary btn-sm">심슨 위키 바로가기</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick='window.location.href = "/"'>다시하기</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick='window.location.href = "/wiki"'>심슨 위키 바로가기</button>
     </div>
 </div>
 </body>
+<script type="module" src="static/scripts/result_firebase.js"></script>
 <script src="static/scripts/result.js"></script>
+<script>
+let chart_labels = {{labels|string|safe}}
+let chart_datas = {{datas}}
+new Chart(document.getElementById("bar-chart"), {
+type: 'bar',
+data: {
+    labels: chart_labels,
+    datasets: [
+        {
+            label: "Search(ea)",
+            backgroundColor: ["#3e95cd"],
+            data: chart_datas
+        }
+    ]
+},
+options: {
+    legend: {display: false},
+    title: {
+        display: true,
+        text: '사진에 나온 심슨들(명)'
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+    }
+});
+</script>
 </html>
