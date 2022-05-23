@@ -24,12 +24,11 @@
     </head>
 
     <body>
-        {{all_comments}} {{all_comments.comments}} {% for res in all_comments%}
-        <li>{{res}} : {{all_comments[res]}}</li>
-        {% for res_plus in all_comments[res]%}
-        <li>{{res_plus}}</li>
+        <!--댓글-->
+        {% for res in all_comments%} {% for res_plus in all_comments[res]%} {{res_plus}} {% endfor %} {% endfor %}
 
-        {% endfor %} {% endfor %}
+        <!--이름-->
+        {% for res in all_comments%} {{res}} {% endfor %}
         <!-- 버튼에 함수 연결하기 -->
         <button onclick='window.location.href = "/"'>이미지 검색으로 돌아가기</button>
         <!-- 검색 -->
@@ -52,7 +51,7 @@
             <div class="d-flex flex-row justify-content-center">
                 <div class="p-2">
                     <div class="listInner">
-                        <span class="simpson_name">Abe Simpson</span>
+                        <span class="simpson_name">{% for res in all_comments%} {{res}} {% endfor %}</span>
                         <img class="simpson_images open-popup" src="/static/images/Abe Simpson.png" />
                         <div class="modal">
                             <div class="modal_body">
@@ -64,9 +63,9 @@
                                     <br />
                                     <br />
                                     <div class="text">
-                                        <p><b>Abe Simpson</b></p>
+                                        <p><b>{% for res in all_comments%} {{res}} {% endfor %}</b></p>
                                         <p><b>I used to be with it. But then they changed what it was. Now what I'm with isn't it, and what's it seems scary and wierd. It'll happen to you.</b></p>
-                                        <p><b>Comment</b></p>
+                                        <p><b>{% for res in all_comments%} {% for res_plus in all_comments[res]%} {{res_plus}} {% endfor %} {% endfor %}</b></p>
                                         <div id="comment-box">
                                             <div>
                                                 <p>
