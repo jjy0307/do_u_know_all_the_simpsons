@@ -1,18 +1,20 @@
-#페이지 구동이 되는 메인 파이썬 파일입니다.
-#플라스크와 몽고db cloud입니다
+# 페이지 구동이 되는 메인 파이썬 파일입니다.
+# 플라스크와 몽고db cloud입니다
+from firebase_admin import firestore
+from firebase_admin import credentials
+import firebase_admin
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from run_model import simpson
 import requests
-import certifi  #만약 몽고 디비 돌릴때 문제가 없으셨다면 해당 줄은 주석 처리 하세요.
-client = MongoClient('mongodb+srv://test:sparta@cluster0.0mzan.mongodb.net/Cluster0?retryWrites=true&w=majority' ,tlsCAFile=certifi.where())
+import certifi  # 만약 몽고 디비 돌릴때 문제가 없으셨다면 해당 줄은 주석 처리 하세요.
+client = MongoClient(
+    'mongodb+srv://test:sparta@cluster0.0mzan.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 db = client.Simpson
 app = Flask(__name__)
-#firebase입니다
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-cred = credentials.Certificate('key/rs-object-recognition-firebase-adminsdk-r5b1b-9fae1668a5.json')
+# firebase입니다
+cred = credentials.Certificate(
+    'key/rs-object-recognition-firebase-adminsdk-r5b1b-9fae1668a5.json')
 firebase_admin.initialize_app(cred)
 FBdb = firestore.client()
 
@@ -32,13 +34,23 @@ def recognize():
     return jsonify({'result': 'success', 'rec_result': str(result), 'rec_img': str(img_name)})
 
 
-#가현님 부분
+# 가현님 부분
 @app.route('/wiki')
 def wiki():
-    return render_template("wiki.html")
+    dic = {}
+    all_comments = list(db.comments.find({}, {'_id': False}))
+    for comment in all_comments:
+        if comment['character_name'] not in dic:
+            dic[comment['character_name']] = [comment['comments']]
+            print(dic[comment['character_name']])
+
+        else:
+            dic[comment['character_name']].append(comment['comments'])
+
+    return render_template("wiki.html", all_comments=dic)
 
 
-#민재님 부분
+# 민재님 부분
 @app.route('/result')
 def result():
     simpsons = list(db.characters.find({}, {'_id': False}))
@@ -71,7 +83,9 @@ def comment():
 def chart():
     return jsonify({'result': 'success', 'categorized_results': 'character_name', '전체 심슨 캐릭터 조회 횟수': 'character_count'})
 
-#진영님 부분
+# 진영님 부분
+
+
 @app.route('/modal')
 def modal():
     return render_template('modal.html')
@@ -98,15 +112,13 @@ def comment_get():
     comments_list = list(db.comments.find({}, {'_id': False}))
     return jsonify({'comments': comments_list})
 
+
 @app.route("/delete", methods=["POST"])
 def comment_del():
     num = request.form['count']
     db.comments.delete_one({'num': int(num)})
 
     return jsonify({'msg': '삭제 완료!'})
-
-
-
 
 
 if __name__ == '__main__':

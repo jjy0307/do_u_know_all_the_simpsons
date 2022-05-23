@@ -1,599 +1,585 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>modal-test</title>
 
-    <meta charset="UTF-8">
-    <title>modal-test</title>
+        <!--style 파일 불러오기!-->
+        <link rel="stylesheet" href="../static/style/screens/modal.css" />
 
-
-    <!--style 파일 불러오기!-->
-    <link rel="stylesheet" href="../static/style/screens/modal.css" />
-
-    <!--js 파일 불러오기-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-</head>
-<body>
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Abe%20Simpson.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Abe%20Simpson.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Abe Simpson</b></p>
-                <p><b>I used to be with it. But then they changed what it was. Now what I'm with isn't it, and what's it seems scary and wierd. It'll happen to you.</b></p>
-                <p><b>Comment</b></p>
-                <div id="comment-box">
-                    <div>
-                        <p><button class="delete-btn" onclick="delete_comment('${num}')">삭제</button></p>
+        <!--js 파일 불러오기-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Abe%20Simpson.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Abe%20Simpson.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Abe Simpson</b></p>
+                        <p><b>I used to be with it. But then they changed what it was. Now what I'm with isn't it, and what's it seems scary and wierd. It'll happen to you.</b></p>
+                        <p><b>Comment</b></p>
+                        <div id="comment-box">
+                            <div>
+                                <p><button class="delete-btn" onclick="delete_comment('${num}')">삭제</button></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" placeholder="캐릭터 한줄 평 입력" id="comments" type="text" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" onclick="save_comment()">게시</button>
                     </div>
                 </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" placeholder="캐릭터 한줄 평 입력" id="comments"
-                       type="text">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" onclick="save_comment()">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Homer%20Simpson.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Homer%20Simpson.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Homer Simpson</b></p>
-                <p><b>I believe the children are the future... Unless we stop them now!</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Homer%20Simpson.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Homer%20Simpson.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Homer Simpson</b></p>
+                        <p><b>I believe the children are the future... Unless we stop them now!</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Lisa%20Simpson.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Lisa%20Simpson.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Lisa Simpson</b></p>
-                <p><b>These are my only friends...grown-up nerds like Gore Vidal. And even he's kissed more boys than I ever will.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Lisa%20Simpson.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Lisa%20Simpson.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Lisa Simpson</b></p>
+                        <p><b>These are my only friends...grown-up nerds like Gore Vidal. And even he's kissed more boys than I ever will.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Bart%20Simpson.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Bart%20Simpson.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Bart Simpson</b></p>
-                <p><b>You're turning me into a criminal when all I want to be is a petty thug.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Bart%20Simpson.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Bart%20Simpson.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Bart Simpson</b></p>
+                        <p><b>You're turning me into a criminal when all I want to be is a petty thug.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Principal%20Skinner.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Principal%20Skinner.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Principal Skinner</b></p>
-                <p><b>Hello, Simpson. I'm riding the bus today becuase Mother hid my car keys to punish me for talking to a woman on the phone. She was right to do it.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Principal%20Skinner.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Principal%20Skinner.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Principal Skinner</b></p>
+                        <p><b>Hello, Simpson. I'm riding the bus today becuase Mother hid my car keys to punish me for talking to a woman on the phone. She was right to do it.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Otto.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Otto.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Otto</b></p>
-                <p><b>Oh, wow, windows. I don't think I could afford this place.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Otto.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Otto.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Otto</b></p>
+                        <p><b>Oh, wow, windows. I don't think I could afford this place.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Chief%20Wiggum.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Chief%20Wiggum.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Chief Wiggum</b></p>
-                <p><b>When I look at people I don't see colors; I just see crackpot religions.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Chief%20Wiggum.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Chief%20Wiggum.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Chief Wiggum</b></p>
+                        <p><b>When I look at people I don't see colors; I just see crackpot religions.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Groundskeeper%20Willie.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Groundskeeper%20Willie.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Groundskeeper Willie</b></p>
-                <p><b>Back in Edinburg, we had a coal miners strike. All we wanted were hats with a wee light on top. Then one day the mine collapsed. No one made it out alive, not even Willie!</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Groundskeeper%20Willie.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Groundskeeper%20Willie.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Groundskeeper Willie</b></p>
+                        <p>
+                            <b
+                                >Back in Edinburg, we had a coal miners strike. All we wanted were hats with a wee light on top. Then one day the mine collapsed. No one made it out alive, not even
+                                Willie!</b
+                            >
+                        </p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Comic%20Book%20Guy.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Comic%20Book%20Guy.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Comic Book Guy</b></p>
-                <p><b>Last night's 'Itchy and Scratchy' was, without a doubt, the worst episode ever. Rest assured that I was on the Internet within minutes, registering my disgust throughout the world.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Comic%20Book%20Guy.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Comic%20Book%20Guy.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Comic Book Guy</b></p>
+                        <p>
+                            <b
+                                >Last night's 'Itchy and Scratchy' was, without a doubt, the worst episode ever. Rest assured that I was on the Internet within minutes, registering my disgust
+                                throughout the world.</b
+                            >
+                        </p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Marge%20Simpson.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Marge%20Simpson.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Marge Simpson</b></p>
-                <p><b>I don't want to sound like a killjoy, but becuase this is not to my taste I don't think anyone else should be allowed to enjoy it.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Marge%20Simpson.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Marge%20Simpson.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Marge Simpson</b></p>
+                        <p><b>I don't want to sound like a killjoy, but becuase this is not to my taste I don't think anyone else should be allowed to enjoy it.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Mr.%20Burns.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Mr.%20Burns.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Mr. Burns</b></p>
-                <p><b>Doughnuts? I told you I don't like ethnic food</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Mr.%20Burns.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Mr.%20Burns.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Mr. Burns</b></p>
+                        <p><b>Doughnuts? I told you I don't like ethnic food</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Ralph%20Wiggum.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Ralph%20Wiggum.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Ralph Wiggum</b></p>
-                <p><b>They taste like...burning.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Ralph%20Wiggum.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Ralph%20Wiggum.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Ralph Wiggum</b></p>
+                        <p><b>They taste like...burning.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Duffman.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Duffman.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Duffman</b></p>
-                <p><b>Oh Yeah!</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Duffman.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Duffman.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Duffman</b></p>
+                        <p><b>Oh Yeah!</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Waylon%20Smithers.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Waylon%20Smithers.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Waylon Smithers</b></p>
-                <p><b>I think women and seamen don't mix</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Waylon%20Smithers.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Waylon%20Smithers.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Waylon Smithers</b></p>
+                        <p><b>I think women and seamen don't mix</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Nelson%20Muntz.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Nelson%20Muntz.png"">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Nelson Muntz</b></p>
-                <p><b>Shoplifting is a victimless crime, like punching someone in the dark.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Nelson%20Muntz.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left"><img class="modal_img" src="/static/images/Nelson%20Muntz.png""></div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Nelson Muntz</b></p>
+                        <p><b>Shoplifting is a victimless crime, like punching someone in the dark.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Dr.%20NickRiviera.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Dr.%20NickRiviera.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Dr. Nick</b></p>
-                <p><b>Ah, be creative. Instead of making sandwhiches with bread, use Pop-Tarts. Instead of chewing gum, chew bacon.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Dr.%20NickRiviera.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Dr.%20NickRiviera.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Dr. Nick</b></p>
+                        <p><b>Ah, be creative. Instead of making sandwhiches with bread, use Pop-Tarts. Instead of chewing gum, chew bacon.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Troy%20McClure.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Troy%20McClure.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Troy McClure</b></p>
-                <p><b>Ahh! Sweet liquor eases the pain.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Troy%20McClure.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Troy%20McClure.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Troy McClure</b></p>
+                        <p><b>Ahh! Sweet liquor eases the pain.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Milhouse%20Van%20Houten.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Milhouse%20Van%20Houten.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Milhouse Van Houten</b></p>
-                <p><b>But my mom says I'm cool.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Milhouse%20Van%20Houten.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Milhouse%20Van%20Houten.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Milhouse Van Houten</b></p>
+                        <p><b>But my mom says I'm cool.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Rainier%20Wolfcastle.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Rainier%20Wolfcastle.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Rainier Wolfcastle</b></p>
-                <p><b>My eyes! The goggles do nothing!</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Rainier%20Wolfcastle.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Rainier%20Wolfcastle.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Rainier Wolfcastle</b></p>
+                        <p><b>My eyes! The goggles do nothing!</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Moe%20Szyslak.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Moe%20Szyslak.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Moe Szyslak</b></p>
-                <p><b>When I catch you, I'm gonna pull out your eyes and stick 'em down your pants so you can watch me kick the crap outta you, okay? Next I'm gonna use your tongue to paint my boat</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Moe%20Szyslak.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Moe%20Szyslak.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Moe Szyslak</b></p>
+                        <p>
+                            <b
+                                >When I catch you, I'm gonna pull out your eyes and stick 'em down your pants so you can watch me kick the crap outta you, okay? Next I'm gonna use your tongue to paint
+                                my boat</b
+                            >
+                        </p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Apu%20Nahasapeemapetilon.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Apu%20Nahasapeemapetilon.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Apu Nahasapeemapetilon</b></p>
-                <p><b>Thank you. Come again.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Apu%20Nahasapeemapetilon.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Apu%20Nahasapeemapetilon.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Apu Nahasapeemapetilon</b></p>
+                        <p><b>Thank you. Come again.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Frank%20Grimes.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Frank%20Grimes.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Frank Grimes</b></p>
-                <p><b>I live in a single room above a bowling alley...and below another bowling alley.</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Frank%20Grimes.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Frank%20Grimes.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Frank Grimes</b></p>
+                        <p><b>I live in a single room above a bowling alley...and below another bowling alley.</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
 
-<img class="open-popup" style="cursor: pointer;" src="/static/images/Mayor%20Quimby.png">
-<div class="modal">
-    <div class="modal_body">
-        <div class="modal_left">
-            <img class="modal_img" src="/static/images/Mayor%20Quimby.png">
-        </div>
-        <div class="modal_right">
-            <button class="close-popup close1"></button>
-            <br>
-            <br>
-            <div class="text">
-                <p><b>Mayor Quimby</b></p>
-                <p><b>Can't we have one meeting that doesn't end with us digging up a corpse?</b></p>
-                <p><b>Comment</b></p>
-                <p></p>
+        <img class="open-popup" style="cursor: pointer" src="/static/images/Mayor%20Quimby.png" />
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_left">
+                    <img class="modal_img" src="/static/images/Mayor%20Quimby.png" />
+                </div>
+                <div class="modal_right">
+                    <button class="close-popup close1"></button>
+                    <br />
+                    <br />
+                    <div class="text">
+                        <p><b>Mayor Quimby</b></p>
+                        <p><b>Can't we have one meeting that doesn't end with us digging up a corpse?</b></p>
+                        <p><b>Comment</b></p>
+                        <p></p>
+                    </div>
+                    <div class="comment">
+                        <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input" placeholder="캐릭터 한줄 평 입력" />
+                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
+                    </div>
+                </div>
             </div>
-            <div class="comment">
-                <input style="width: 440px; height: 40px; border-radius: 0" id="comment-input"
-                       placeholder="캐릭터 한줄 평 입력">
-                <button style="cursor: pointer; width: 64px; border-radius: 0" id="submit">게시</button>
-            </div>
         </div>
-    </div>
-</div>
-
-</body>
-<script defer src="/static/scripts/modal.js"></script>
-<script defer src="/static/scripts/comment.js"></script>
+    </body>
+    <script defer src="/static/scripts/modal.js"></script>
+    <script defer src="/static/scripts/comment.js"></script>
 </html>
