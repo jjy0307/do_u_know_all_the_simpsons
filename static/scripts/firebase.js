@@ -97,7 +97,6 @@ function searchImage() {
     file = InputImg
   }
   const fileName = file.lastModified.toString() + file.name;
-  console.log(fileName)
   const storageRef = ref(storage, fileName);
   uploadBytes(storageRef, file)
         .then((snapshot) => {
@@ -106,7 +105,6 @@ function searchImage() {
 
   let formData = new FormData();
   formData.append("Img_Path", fileName)
-  formData.append("haha", "sexy")
   axios.post('/recognize_img', formData, {
       header: {
           "Content-Type": "multipart/form-data",
