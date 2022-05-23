@@ -1,5 +1,5 @@
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -43,11 +43,6 @@
     height: 576px;
 }
 
-.open-popup {
-    width: 225px;
-    height: 225px;
-}
-
 .close-popup {
     float: right;
     width: 50px;
@@ -87,5 +82,7 @@
     width: 64px;
     border-radius: 0;
     cursor: pointer;
-
+}
+.open-popup{
+    cursor: pointer;
 }
