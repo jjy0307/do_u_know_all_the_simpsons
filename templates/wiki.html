@@ -49,10 +49,12 @@
         <!-- 캐릭터모음1 -->
         <div class="listBox" id="firstpage">
             <div class="d-flex flex-row justify-content-center">
+                {% for res in all_comments%}
                 <div class="p-2">
                     <div class="listInner">
-                        <span class="simpson_name">{% for res in all_comments%} {{res}} {% endfor %}</span>
+                        <span class="simpson_name"> {{res}} </span>
                         <img class="simpson_images open-popup" src="/static/images/Abe Simpson.png" />
+
                         <div class="modal">
                             <div class="modal_body">
                                 <div class="modal_left">
@@ -63,9 +65,11 @@
                                     <br />
                                     <br />
                                     <div class="text">
-                                        <p><b>{% for res in all_comments%} {{res}} {% endfor %}</b></p>
+                                        <p><b> {{res}} </b></p>
+
                                         <p><b>I used to be with it. But then they changed what it was. Now what I'm with isn't it, and what's it seems scary and wierd. It'll happen to you.</b></p>
-                                        <p><b>{% for res in all_comments%} {% for res_plus in all_comments[res]%} {{res_plus}} {% endfor %} {% endfor %}</b></p>
+                                        {% for res_plus in all_comments[res]%}
+                                        <p><b> {{res_plus}} </b></p>
                                         <div id="comment-box">
                                             <div>
                                                 <p>
@@ -73,6 +77,7 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        {% endfor %}
                                     </div>
                                     <div class="comment">
                                         <input style="width: 440px; height: 40px; border-radius: 0" placeholder="캐릭터 한줄 평 입력" id="comments" type="text" />
@@ -83,6 +88,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
                 <div class="p-2">
                     <div class="listInner">
                         <span class="simpson_name">Homer Simpson</span>
