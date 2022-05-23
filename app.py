@@ -15,9 +15,11 @@ cred = credentials.Certificate('key/rs-object-recognition-firebase-adminsdk-r5b1
 firebase_admin.initialize_app(cred)
 FBdb = firestore.client()
 
+
 @app.route('/')
 def MainPage():
     return render_template('mainpage.html')
+
 
 @app.route('/recognize_img', methods=["POST"])
 def recognize():
@@ -26,6 +28,12 @@ def recognize():
     doc = {'img_name': img_name, 'rec_result': result}
     db.characters.insert_one(doc)
     return jsonify({'result': 'success', 'rec_result': result})
+
+
+
+
+
+
 
 
 if __name__ == '__main__':

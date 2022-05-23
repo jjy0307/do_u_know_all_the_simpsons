@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (simpson)" project-jdk-type="Python SDK" />
 =======
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (tf)" project-jdk-type="Python SDK" />
 >>>>>>> origin/main
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Do u know all the Simpson's)" project-jdk-type="Python SDK" />
+>>>>>>> result
 </project>
