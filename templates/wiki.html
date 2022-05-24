@@ -19,16 +19,18 @@
         <title>Document</title>
         <link rel="stylesheet" href="../static/style/screens/wiki.css" />
         <link rel="stylesheet" href="../static/style/screens/modal.css" />
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href = "../static/style/screens/button.css">
     </head>
 
     <body>
         <!-- 이미지 검색으로 돌아가기 버튼 -->
-        <button onclick='window.location.href = "/"'>이미지 검색으로 돌아가기</button>
+        <div style="background-color:#FFE700;">
+        <button class="w-btn w-btn-yellow wikibutton" onclick='window.location.href = "/"'>Go Home</button>
+        </div>
         <!-- 검색 -->
         <div class="searchBox">
-            <label>Simpson name: <input type="text" id="search" onkeyup="filter()" placeholder="심슨 이름을 검색해주세요." /></label>
+            <label>Simpson name is : <input style=" border: 3px dashed black; border-radius:25px; "type="text" id="search" onkeyup="filter()" placeholder=" . . ." /></label>
         </div>
 
         <!-- 캐릭터모음 -->
@@ -47,9 +49,9 @@
                         <img class="simpson_images open-popup" src="/static/images/{{r}}.png" />
 
                         <div class="modal">
-                            <div class="modal_body">
+                            <div class="modal_body" >
                                 <div class="modal_left">
-                                    <img class="modal_img" src="/static/images/{{r}}.png" />
+                                    <img style="margin-top:20px;margin-left: 100px;padding:40px;height:500px; width:300px;"class="modal_img" src="/static/images/{{r}}.png" />
                                 </div>
                                 <div class="modal_right">
                                     <button class="close-popup close1"></button>
@@ -63,15 +65,15 @@
                                         <div id="comment-box">
                                             <div>
                                                 <p>
-                                                    {{res_plus}}<button class="delete-btn" id="{{r}}+{{res_plus}}" onclick="delete_comment(this.id)">삭제</button>
+                                                    {{res_plus}}<button class="delete-btn" id="{{r}}+{{res_plus}}" onclick="delete_comment(this.id)">Delete</button>
                                                 </p>
                                             </div>
                                         </div>
                                         {% endfor %}
                                     </div>
                                     <div class="comment">
-                                        <input style="width: 440px; height: 40px; border-radius: 0" placeholder="캐릭터 한줄 평 입력" id="{{r}}-comments" type="text" />
-                                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="{{r}}-value" onclick="save_comment(this.id)">게시</button>
+                                        <input style="border: 3px solid black; width: 440px; height: 40px; border-radius: 30px" placeholder=" Add character quote..." id="{{r}}-comments" type="text" />
+                                        <button style="border: 3px solid black;cursor: pointer; width: 64px; border-radius: 30px" id="{{r}}-value" onclick="save_comment(this.id)">Post!</button>
                                     </div>
                                 </div>
                             </div>

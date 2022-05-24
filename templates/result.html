@@ -19,28 +19,29 @@
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href = "../static/style/screens/button.css">
     <title>Do u know all the Simpson's?</title>
 </head>
 <body>
-<div class="result">
+<div style="background-color: #FFE700;"class="result">
     <img class="result-img" src="static/images/Simpson.jpg" id="result-img">
-    <div class="result-text">
+    <div style="margin-top:100px;" class="result-text">
         <span id="result-text">
-            이런 분류 결과가 없군요
+            Can't Find Simpson!
         </span>
     </div>
     <div class="input-group mb-3">
-        <input id="comment" type="text" class="form-control" placeholder="캐릭터에 대한 한 줄 평을 입력해주세요!"
+        <input id="comment" type="text" class="form-control" placeholder="Add Character quote ..."
                aria-label="캐릭터에 대한 한 줄 평을 입력해주세요!"
                aria-describedby="button-addon2">
-        <button onclick="review()" class="btn btn-outline-secondary" type="button" id="button-addon2" >작성</button>
+        <button onclick="review()" class="btn btn-outline-secondary w-btn w-btn-yellow " type="button" id="button-addon2" >Post!</button>
     </div>
     <div class="bar-chart">
         <canvas id="bar-chart"></canvas>
     </div>
-    <div class="button">
-        <button type="button" class="btn btn-primary btn-sm" onclick='window.location.href = "/"'>다시하기</button>
-        <button type="button" class="btn btn-primary btn-sm" onclick='window.location.href = "/wiki"'>심슨 위키 바로가기</button>
+    <div class="button" style="display:flex; justify-content: center;">
+        <button type="button" class="w-btn w-btn-yellow" onclick='window.location.href = "/"'>Go main</button><p>ㅤㅤ</p>
+        <button type="button" class="w-btn w-btn-yellow" onclick='window.location.href = "/wiki"'>Simpson Wiki</button>
     </div>
 </div>
 </body>
