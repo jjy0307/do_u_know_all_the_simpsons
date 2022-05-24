@@ -1,4 +1,5 @@
 # 페이지 구동이 되는 메인 파이썬 파일입니다.
+<<<<<<< HEAD
 # 플라스크와 몽고db cloud입니다
 from firebase_admin import firestore
 from firebase_admin import credentials
@@ -190,3 +191,5 @@ def comment_del():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
+=======
+>>>>>>> 13471698e348263c41cda20a28e4788daf7470ad
