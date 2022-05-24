@@ -41,6 +41,7 @@
                 {% for res in all_comments[i*5:(i+1)*5] %}
                 <div class="p-2">
                     {% for r in res %}
+                    {% if r != 'simpsons_dataset' %}
                     <div class="listInner">
                         <span class="simpson_name"> {{r}} </span>
                         <img class="simpson_images open-popup" src="/static/images/{{r}}.png" />
@@ -76,6 +77,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
                 {% endfor %}
