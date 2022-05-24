@@ -4,15 +4,12 @@
     margin: 70px;
 }
 
-.listBox {
-    background-color: blue;
-}
+.listBox
 
 .listInner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: yellow;
     margin: 10px 5px;
     padding: 4px;
     font-weight: bold;

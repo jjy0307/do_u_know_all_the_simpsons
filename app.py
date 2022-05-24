@@ -24,7 +24,6 @@ def MainPage():
     return render_template('mainpage.html')
 
 
-@app.route('/recognize_img', methods=["POST"])
 def recognize():
     img_name = request.form['Img_Path']
     print(img_name)
@@ -33,6 +32,9 @@ def recognize():
     db.characters.insert_one(doc)
     return jsonify({'result': 'success', 'rec_result': str(result), 'rec_img': str(img_name)})
 
+
+# 기존 {'fat_tony': ['1asdasdsa23213123', '123asdasdasdsadsad213123', 'aaa'], 'krusty_the_clown': ['adfadfdafdfadfaf', 'adfasdsadsadsadsadsadaf'], 'fat': ['aaaa']}
+# [{'fat_tony': ['1asdasdsa23213123', '123asdasdasdsadsad213123', 'aaa']}, {'krusty_the_clown': ['adfadfdafdfadfaf', 'adfasdsadsadsadsadsadaf']}, {'fat': ['aaaa']}]
 
 # 가현님 부분
 @app.route('/wiki')
@@ -46,8 +48,12 @@ def wiki():
 
         else:
             dic[comment['character_name']].append(comment['comments'])
-
-    return render_template("wiki.html", all_comments=dic)
+    
+    insert=[]
+    for d in dic:
+        insert.append({d:dic[d]})
+    print(insert)
+    return render_template("wiki.html", all_comments=insert)
 
 
 # 민재님 부분
