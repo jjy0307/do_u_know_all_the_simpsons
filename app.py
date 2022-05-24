@@ -52,7 +52,7 @@ def wiki():
     for comment in all_comments:
         if comment['character_name'] not in dic:
             dic[comment['character_name']] = [comment['comments']]
-            print(dic[comment['character_name']])
+            # print(dic[comment['character_name']])
 
         else:
             dic[comment['character_name']].append(comment['comments'])
@@ -122,6 +122,9 @@ def comment_post():
     #     'num': count,
     #     'comment': comment_receive
     # }
+    print('aa')
+    print(comment_receive)
+    print(character_receive)
     doc = {
         'comments': comment_receive,
         'character_name': character_receive

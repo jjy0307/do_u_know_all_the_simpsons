@@ -26,10 +26,11 @@
 // }
 
 function save_comment(id) {
-
-    let comment = $('#comments').val()
     let comment_id = document.getElementById(id).id
     let character_name = comment_id.split("-")[0]
+    let input_id = character_name + "-comments"
+    let comment = document.getElementById(input_id).value
+    console.log(character_name)
     $.ajax({
         type: 'POST',
         url: '/comments',
