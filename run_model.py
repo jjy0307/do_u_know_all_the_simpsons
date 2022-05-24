@@ -27,7 +27,6 @@ def simpson(img_name, cred):
         url).content), dtype=np.uint8)  # 이미지로 바꿔줍니다
     c_image = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
     # 이미지를 보고 싶다면 하단 코드의 주석을 풀어주세요
-    # c_image.resize(64,64)
     # cv2.imshow('Image from url', c_image)
     # cv2.waitKey(0)
 
