@@ -61,7 +61,14 @@ def wiki():
     for d in dic:
         insert.append({d:dic[d]})
     print(insert)
-    return render_template("wiki.html", all_comments=insert)
+    
+    #labels = ['sideshow_bob', 'mayor_quimby', 'troy_mcclure', 'lisa_simpson', 'moe_szyslak', 'groundskeeper_willie', 'sideshow_mel', 'patty_bouvier', 'waylon_smithers', 'ralph_wiggum', 'chief_wiggum', 'professor_john_frink', 'agnes_skinner', 'rainier_wolfcastle', 'otto_mann', 'miss_hoover', 'charles_montgomery_burns', 'homer_simpson', 'maggie_simpson', 'bart_simpson', 'comic_book_guy',
+     #        'martin_prince', 'gil', 'marge_simpson', 'lionel_hutz', 'nelson_muntz', 'snake_jailbird', 'krusty_the_clown', 'lenny_leonard', 'carl_carlson', 'abraham_grampa_simpson', 'milhouse_van_houten', 'kent_brockman', 'disco_stu', 'selma_bouvier', 'apu_nahasapeemapetilon', 'fat_tony', 'cletus_spuckler', 'edna_krabappel', 'ned_flanders', 'barney_gumble', 'principal_skinner']
+    description = {
+        'sideshow_bob' : '설명', 
+        'mayor_quimby' : '설명',
+    }
+    return render_template("wiki.html", all_comments=insert, desc=description)
 
 
 # 민재님 부분
