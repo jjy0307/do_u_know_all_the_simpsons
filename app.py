@@ -18,15 +18,23 @@ cred = credentials.Certificate(
 firebase_admin.initialize_app(cred)
 FBdb = firestore.client()
 
+#전체 디비 넣기
+# labels = ['sideshow_bob', 'mayor_quimby', 'troy_mcclure', 'lisa_simpson', 'moe_szyslak', 'groundskeeper_willie', 'sideshow_mel', 'patty_bouvier', 'waylon_smithers', 'ralph_wiggum', 'chief_wiggum', 'professor_john_frink', 'agnes_skinner', 'rainier_wolfcastle', 'otto_mann', 'miss_hoover', 'charles_montgomery_burns', 'homer_simpson', 'maggie_simpson', 'bart_simpson', 'comic_book_guy',
+#               'martin_prince', 'gil', 'marge_simpson', 'lionel_hutz', 'nelson_muntz', 'snake_jailbird', 'krusty_the_clown', 'lenny_leonard', 'carl_carlson', 'abraham_grampa_simpson', 'milhouse_van_houten', 'kent_brockman', 'disco_stu', 'selma_bouvier', 'apu_nahasapeemapetilon', 'simpsons_dataset', 'fat_tony', 'cletus_spuckler', 'edna_krabappel', 'ned_flanders', 'barney_gumble', 'principal_skinner']
+# for a in labels:
+#     db.comments.insert_one({
+#         'comments': f'hi my name is {a}',
+#         'character_name': a
+#     })
+
 
 @app.route('/')
 def MainPage():
     return render_template('mainpage.html')
 
-
+@app.route('/recognize_img', methods=['POST'])
 def recognize():
     img_name = request.form['Img_Path']
-    print(img_name)
     result = simpson(img_name, cred)
     doc = {'img_name': img_name, 'rec_result': result}
     db.characters.insert_one(doc)

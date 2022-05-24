@@ -34,11 +34,11 @@
         <!-- 캐릭터모음 -->
         <div class="listBox" id="firstpage">
             {% for i in range((all_comments|length)//5+1) %}
-            
+<!--            {{i}}-->
             <div class="d-flex flex-row justify-content-center">
-                
-                {% for res in all_comments[i:i+5] %}
-              
+<!--                {{i*5}}-->
+<!--                {{(i+1)*5}}-->
+                {% for res in all_comments[i*5:(i+1)*5] %}
                 <div class="p-2">
                     {% for r in res %}
                     <div class="listInner">

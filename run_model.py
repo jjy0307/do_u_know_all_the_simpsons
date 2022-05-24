@@ -11,10 +11,13 @@ from firebase_admin import storage
 
 
 def simpson(img_name, cred):
+    # #매초 name값을 생성합니다.
+    datetimeObj = datetime.datetime.now()
+    app_name = datetimeObj.strftime("%d-%b-%Y (%H:%M:%S.%f)")
     # firebase에 접속합니다
     app = firebase_admin.initialize_app(cred, {
         'storageBucket': 'rs-object-recognition.appspot.com'
-    }, name='upload-images1x1a')
+    }, name=app_name)
     bucket = storage.bucket(app=app)
     # firebase이미지 불러와서
     blob = bucket.get_blob(img_name)  # blob데이터 형식으로 불러옵니다
