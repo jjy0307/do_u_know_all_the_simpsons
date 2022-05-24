@@ -85,9 +85,9 @@ def comment():
     return jsonify({'result': 'success'})
 
 
-@app.route('/logs', methods=['GET'])
-def chart():
-    return jsonify({'result': 'success', 'categorized_results': 'character_name', '전체 심슨 캐릭터 조회 횟수': 'character_count'})
+# @app.route('/logs', methods=['GET'])
+# def chart():
+#     return jsonify({'result': 'success', 'categorized_results': 'character_name', '전체 심슨 캐릭터 조회 횟수': 'character_count'})
 
 # 진영님 부분
 
@@ -100,30 +100,35 @@ def modal():
 @app.route("/comments", methods=["POST"])
 def comment_post():
     comment_receive = request.form['comment_give']
-    comments_list = list(db.comments.find({}, {'_id': False}))
-    count = len(comments_list) + 1
-
+    character_receive = request.form['character']
+    # comments_list = list(db.comments.find({}, {'_id': False}))
+    # count = len(comments_list) + 1
+    # doc = {
+    #     'num': count,
+    #     'comment': comment_receive
+    # }
     doc = {
-        'num': count,
-        'comment': comment_receive
+        'comments': comment_receive,
+        'character_name': character_receive
     }
-
     db.comments.insert_one(doc)
 
     return jsonify({'msg': '작성 완료!'})
 
 
-@app.route("/comments", methods=["GET"])
-def comment_get():
-    comments_list = list(db.comments.find({}, {'_id': False}))
-    return jsonify({'comments': comments_list})
+# @app.route("/comments", methods=["GET"])
+# def comment_get():
+#     comments_list = list(db.comments.find({}, {'_id': False}))
+#     return jsonify({'comments': comments_list})
 
 
 @app.route("/delete", methods=["POST"])
 def comment_del():
-    num = request.form['count']
-    db.comments.delete_one({'num': int(num)})
-
+    # num = request.form['count']
+    # db.comments.delete_one({'num': int(num)})
+    com = request.form['comment']
+    name = request.form['character_name']
+    db.comments.delete_one({'comments':com, 'character_name':name})
     return jsonify({'msg': '삭제 완료!'})
 
 

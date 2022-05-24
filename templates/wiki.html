@@ -37,32 +37,32 @@
             
             <div class="d-flex flex-row justify-content-center">
                 
-                {%for res in all_comments[i:i+5]%}
+                {% for res in all_comments[i:i+5] %}
               
                 <div class="p-2">
+                    {% for r in res %}
                     <div class="listInner">
-                        <span class="simpson_name"> {{res}} </span>
-                        <img class="simpson_images open-popup" src="/static/images/{{res}}.png" />
+                        <span class="simpson_name"> {{r}} </span>
+                        <img class="simpson_images open-popup" src="/static/images/{{r}}.png" />
 
                         <div class="modal">
                             <div class="modal_body">
                                 <div class="modal_left">
-                                    <img class="modal_img" src="/static/images/{{res}}.png" />
+                                    <img class="modal_img" src="/static/images/{{r}}.png" />
                                 </div>
                                 <div class="modal_right">
                                     <button class="close-popup close1"></button>
                                     <br />
                                     <br />
                                     <div class="text">
-                                        <p><b> {{res}} </b></p>
+                                        <p><b> {{r}} </b></p>
 
                                         <p><b>I used to be with it. But then they changed what it was. Now what I'm with isn't it, and what's it seems scary and wierd. It'll happen to you.</b></p>
-                                        {% for res_plus in all_comments[res]%}
-                                        <p><b> {{res_plus}} </b></p>
+                                        {% for res_plus in res[r] %}
                                         <div id="comment-box">
                                             <div>
                                                 <p>
-                                                    <button class="delete-btn" onclick="delete_comment('${num}')">삭제</button>
+                                                    {{res_plus}}<button class="delete-btn" id="{{r}}+{{res_plus}}" onclick="delete_comment(this.id)">삭제</button>
                                                 </p>
                                             </div>
                                         </div>
@@ -70,15 +70,15 @@
                                     </div>
                                     <div class="comment">
                                         <input style="width: 440px; height: 40px; border-radius: 0" placeholder="캐릭터 한줄 평 입력" id="comments" type="text" />
-                                        <button style="cursor: pointer; width: 64px; border-radius: 0" onclick="save_comment()">게시</button>
+                                        <button style="cursor: pointer; width: 64px; border-radius: 0" id="{{r}}-value" onclick="save_comment(this.id)">게시</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                
-                {%endfor%}
+                {% endfor %}
                 
                 
                 
