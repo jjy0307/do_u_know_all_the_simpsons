@@ -52,6 +52,14 @@
 <script>
 let chart_labels = {{labels|string|safe}}
 let chart_datas = {{datas}}
+function getRandomColor() {
+	return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
+list_color = []
+for (let i=0; i<chart_datas.length; i++) {
+    list_color.push(getRandomColor())
+}
+console.log(chart_labels)
 new Chart(document.getElementById("bar-chart"), {
 type: 'bar',
 data: {
@@ -59,7 +67,7 @@ data: {
     datasets: [
         {
             label: "Search(ea)",
-            backgroundColor: ["#3e95cd"],
+            backgroundColor: list_color,
             data: chart_datas
         }
     ]
