@@ -1,3 +1,127 @@
+# ☘ Do u know all the Simpson's?
+
+## 🔜 목차
+1. 프로젝트 소개  
+2. 팀 구성  
+3. Stack
+4. Stack & Library Version
+5. 주요 기능  
+6. Troubleshooting
+7. Architecture
+8. ERD
+9. API
+10. Layout
+
+## 📄 프로젝트 소개
+
+
+### ⏲ 개발 기간 : 2022.5.19 ~ 2022.5.24
+
+### 소개 영상  [youtube](https://youtu.be/fsRijEg7DeM)
+
+### Github  [Code](https://github.com/Reinforcement-succeeded/do_u_know_all_the_simpsons)
+
+## 🧑 팀 구성 
+* 4인 팀 프로젝트  <br>
+* 맡은 역할 : AI engineer / back-end developer / front-end developer
+
+<table>
+  <tr>
+    <td align="center"><strong>구분</strong></td>
+    <td align="center"><strong>Back-end</strong></td>
+    <td align="center"><strong>Front-end</strong></td>
+    <td align="center"><strong>Designer</strong></td>
+    <td align="center"><strong>AI Engineer</strong></td>	  
+  </tr>
+  <tr>
+    <td align="center"><strong>메인페이지</strong></td>
+    <td align="center">이승태</td>
+    <td align="center">이승태</td>
+    <td align="center">이승태</td>
+    <td rowspan="4" align="center">윤가현</br>전진영</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>결과 페이지</strong></td>
+    <td align="center">김민재</td>
+    <td align="center">김민재</td>
+    <td align="center">김민재</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>모달 페이지</strong></td>
+    <td align="center">전진영</td>
+    <td align="center">전진영</td>
+    <td align="center">전진영</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>위키 페이지</strong></td>
+    <td align="center">윤가현</td>
+    <td align="center">윤가현</td>
+    <td align="center">윤가현</td>
+  </tr>
+</table>
+
+## ✨ Stack
+* Language : Python, Javascript
+* Framework : Flask
+* Database : MongoDB Cloud
+* Infra : Firebase
+
+## 📖 Stack & Library Version
+<img src="https://img.shields.io/badge/python-3.9.12-brightgreen"> <img src="https://img.shields.io/badge/django-4.0.6-brightgreen"> <img src="https://img.shields.io/badge/django_rest_framework-3.13.1-brightgreen"> <img src="https://img.shields.io/badge/django_rest_framework_simple_jwt-5.2.0-brightgreen"> <img src="https://img.shields.io/badge/django_cors_header-3.13.0-brightgreen"> <img src="https://img.shields.io/badge/mysql_client-2.1.1-brightgreen"> <img src="https://img.shields.io/badge/tensorflow-2.9.1-brightgreen"> <img src="https://img.shields.io/badge/konlpy-0.6.0-brightgreen"> <img src="https://img.shields.io/badge/boto3-1.24.40-brightgreen"> <img src="https://img.shields.io/badge/PyJWT-2.4.0-brightgreen"> <img src="https://img.shields.io/badge/urllib3-1.26.11-brightgreen"> <img src="https://img.shields.io/badge/requests-2.28.1-brightgreen">
+</br>
+## 🕹 주요 기능
+
+### 메인 페이지
+* 로그인 유무에 따라 추천 커뮤니티 변경
+    * 추천 커뮤니티는 무조건 공개 커뮤니티에 대해서만 제공
+* 커뮤니티 별 하루 접속자 수 순위표 제공
+* 가입되지 않은 커뮤니티에 가입 요청 / 요청 취소 가능
+* 커뮤니티 카드를 누를시 해당 커뮤니티로 이동
+    * 단 가입되지 않은 커뮤니티는 접속 불가능
+* 커뮤니티 생성
+    * 커뮤니티 생성자는 관리자로 자동 설정
+
+### 모달 페이지
+* JWT 토큰 방식으로 구현
+* Local Storage에 저장
+* 각 페이지마다 접속시 refresh token을 받게 설정
+* 아이디를 고유값으로 지정하여 중복 방지
+
+### 위키 페이지
+* 비밀번호 변경 가능
+* 가입된 커뮤니티 관리
+* 작성한 글 관리(이동은 미구현)
+* 작성한 댓글 관리(이동은 미구현)
+* 유저->커뮤니티 가입 요청 결과 조회 / 요청 철회 / 요청 삭제
+* 커뮤니티->유저 가입 요청 승락 / 요청 거절
+
+## 😣 TroubleShooting
+1. User와 Community가 ManyToMany 관계일때 커뮤니티 관리자 저장할 Table 설정
+    * 해결 : UserAndCommunity라는 중간 테이블을 만들고 User, Community를 참조
+    * User에 Admin을 설정할 시 어떤 커뮤니티에 해당되는지 설정하기 어려움
+    * 마찬가지로 Community에 Admin에 설정을 해도 같은 문제 발생
+
+2. 동시에 여러 개의 serializer 정보 저장 중 오류 발생으로 일정 부분만 저장될 때
+    * 해결 : transaction을 사용하여 모든 serializer가 동시에 저장되게끔 설정
+
+## 🏚 Architecture
+![image](https://user-images.githubusercontent.com/90381057/186589235-d27760f4-2d18-4642-90be-950eca5e2a92.png)
+
+
+## ⚙ [ERD](https://www.erdcloud.com/d/EL9ztjydoLhqhysPe)
+![image](https://user-images.githubusercontent.com/90381057/186103025-070baeb8-083d-4394-9153-207b4751c940.png)
+
+## 🚀 **API 설계**
+[article](https://documenter.getpostman.com/view/16204656/VUquLFrn#intro)  
+[community](https://documenter.getpostman.com/view/16204656/VUquLFw9)  
+[noticeboard](https://documenter.getpostman.com/view/16204656/VUquLajN)  
+[user](https://documenter.getpostman.com/view/16204656/VUquLajQ)  
+
+## 🗺 Layout
+![Group 26](https://user-images.githubusercontent.com/90381057/186547234-04a9537b-2f48-4a3d-903b-bed3f7b3ba8d.png)
+
+
+
 # 🍩 Do u know all the Simpson's?
 
 - **팀명과 팀원: 강화성공(6조) (윤가현[팀장], 김민재, 전진영, 이승태)**
