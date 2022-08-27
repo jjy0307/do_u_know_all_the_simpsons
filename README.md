@@ -1,4 +1,4 @@
-# ☘ Do u know all the Simpson's?
+# 🍩 Do u know all the Simpson's?
 
 ## 🔜 목차
 1. 프로젝트 소개  
@@ -13,7 +13,7 @@
 10. Layout
 
 ## 📄 프로젝트 소개
-
+심슨 사진 입력시 머신러닝 모델이 학습한 데이터를 바탕으로 캐릭터 이름을 출력해주는 서비스 + 사용자가 해당 캐릭터에 관련한 내용을 자유롭게 추가하고 삭제할 수 있는 서비스
 
 ### ⏲ 개발 기간 : 2022.5.19 ~ 2022.5.24
 
@@ -67,103 +67,8 @@
 * Infra : Firebase
 
 ## 📖 Stack & Library Version
-<img src="https://img.shields.io/badge/python-3.9.12-brightgreen"> <img src="https://img.shields.io/badge/django-4.0.6-brightgreen"> <img src="https://img.shields.io/badge/django_rest_framework-3.13.1-brightgreen"> <img src="https://img.shields.io/badge/django_rest_framework_simple_jwt-5.2.0-brightgreen"> <img src="https://img.shields.io/badge/django_cors_header-3.13.0-brightgreen"> <img src="https://img.shields.io/badge/mysql_client-2.1.1-brightgreen"> <img src="https://img.shields.io/badge/tensorflow-2.9.1-brightgreen"> <img src="https://img.shields.io/badge/konlpy-0.6.0-brightgreen"> <img src="https://img.shields.io/badge/boto3-1.24.40-brightgreen"> <img src="https://img.shields.io/badge/PyJWT-2.4.0-brightgreen"> <img src="https://img.shields.io/badge/urllib3-1.26.11-brightgreen"> <img src="https://img.shields.io/badge/requests-2.28.1-brightgreen">
-</br>
+
 ## 🕹 주요 기능
-
-### 메인 페이지
-* 로그인 유무에 따라 추천 커뮤니티 변경
-    * 추천 커뮤니티는 무조건 공개 커뮤니티에 대해서만 제공
-* 커뮤니티 별 하루 접속자 수 순위표 제공
-* 가입되지 않은 커뮤니티에 가입 요청 / 요청 취소 가능
-* 커뮤니티 카드를 누를시 해당 커뮤니티로 이동
-    * 단 가입되지 않은 커뮤니티는 접속 불가능
-* 커뮤니티 생성
-    * 커뮤니티 생성자는 관리자로 자동 설정
-
-### 모달 페이지
-* JWT 토큰 방식으로 구현
-* Local Storage에 저장
-* 각 페이지마다 접속시 refresh token을 받게 설정
-* 아이디를 고유값으로 지정하여 중복 방지
-
-### 위키 페이지
-* 비밀번호 변경 가능
-* 가입된 커뮤니티 관리
-* 작성한 글 관리(이동은 미구현)
-* 작성한 댓글 관리(이동은 미구현)
-* 유저->커뮤니티 가입 요청 결과 조회 / 요청 철회 / 요청 삭제
-* 커뮤니티->유저 가입 요청 승락 / 요청 거절
-
-## 😣 TroubleShooting
-1. User와 Community가 ManyToMany 관계일때 커뮤니티 관리자 저장할 Table 설정
-    * 해결 : UserAndCommunity라는 중간 테이블을 만들고 User, Community를 참조
-    * User에 Admin을 설정할 시 어떤 커뮤니티에 해당되는지 설정하기 어려움
-    * 마찬가지로 Community에 Admin에 설정을 해도 같은 문제 발생
-
-2. 동시에 여러 개의 serializer 정보 저장 중 오류 발생으로 일정 부분만 저장될 때
-    * 해결 : transaction을 사용하여 모든 serializer가 동시에 저장되게끔 설정
-
-## 🏚 Architecture
-![image](https://user-images.githubusercontent.com/90381057/186589235-d27760f4-2d18-4642-90be-950eca5e2a92.png)
-
-
-## ⚙ [ERD](https://www.erdcloud.com/d/EL9ztjydoLhqhysPe)
-![image](https://user-images.githubusercontent.com/90381057/186103025-070baeb8-083d-4394-9153-207b4751c940.png)
-
-## 🚀 **API 설계**
-[article](https://documenter.getpostman.com/view/16204656/VUquLFrn#intro)  
-[community](https://documenter.getpostman.com/view/16204656/VUquLFw9)  
-[noticeboard](https://documenter.getpostman.com/view/16204656/VUquLajN)  
-[user](https://documenter.getpostman.com/view/16204656/VUquLajQ)  
-
-## 🗺 Layout
-![Group 26](https://user-images.githubusercontent.com/90381057/186547234-04a9537b-2f48-4a3d-903b-bed3f7b3ba8d.png)
-
-
-
-# 🍩 Do u know all the Simpson's?
-
-- **팀명과 팀원: 강화성공(6조) (윤가현[팀장], 김민재, 전진영, 이승태)**
-- **개발 기간 : 22.05.19.목 ~ 22.05. 24.화 오후 5:00 마감**
----
-## 목차
-
-- 계획 및 진행 단계
-- 마무리 단계
-- 피드백
-
----
-
-      
-## 계획 및 진행 단계
-### 프로젝트 **진행 순서**
-    
-> 발제 → 프로젝트 **주제선정**, 발제자료에 나와있는 **기능구현 회의** (모든 팀원이 필수기능 이해하기, 추가기능 어디까지 구현할 것인가?) → 프로젝트에 필요한 **Notion page, GitHub repository 개설** → **Figma 이용해 레이아웃 제작**, GitHub **Readme, Wiki 업로드** → **역할분담 및 마감기한** 설정 → 마감기한까지 열심히 만들기! → 모든 **branch merge** (파일 합치기)→ 완성! → 코드리뷰
-
----
-### **프로젝트 살펴 보기**
-**심슨 캐릭터를 모두 알고있나요?**<br>
-궁금한 심슨 캐릭터를 물어보세요!  혹은 나와 닮은 심슨을 찾아보고 자유롭게 코멘트해 보세요!
-
-**서비스 소개**<br>
-심슨 사진 입력시 머신러닝 모델이 학습한 데이터를 바탕으로 캐릭터 이름을 출력해주는 서비스 + 사용자가 해당 캐릭터에 관련한 내용을 자유롭게 추가하고 삭제할 수 있는 서비스
-
-**사용한 모델** 
-
-[custom된 CNN](https://colab.research.google.com/drive/1pmOUV6U1nJE5f10yM2-iDDFp-1W2p1ut?usp=sharing)
-
-**데이터셋**
-
-**[The Simpsons Characters Data](https://www.kaggle.com/datasets/alexattia/the-simpsons-characters-dataset)**
-
-**개발 툴 :** 
-Vscode, Pycharm, Python, Tensorflow, Keras, Flask, MongoDB, HTML, CSS, JavaScript, Jinja2, Axios, Ajax, Firebase
-
-**협업 툴 :** 
-Notion, Github, Figma, Slack, GatherTown
-
-**필수기능 (완료)**
 - **메인페이지에서 사용자가 이미지 업로드 -> 머신러닝 모델이 이를 인식하여 해당 이미지의 카테고리를 결과페이지에 출력**
 
 - **인식한 심슨이미지와 라벨 데이터를 DB에 저장**
@@ -178,74 +83,40 @@ Notion, Github, Figma, Slack, GatherTown
 - **파이어베이스 이용해 메인페이지에서 이미지 드래그-드롭기능 구현**
 - **심슨 위키페이지에서 모달 띄운 뒤 DB연동해 코멘트 추가, 삭제할 수 있는 기능 제작**</u>
 
-**페이지 이용자 :**
-심슨 팬, 심슨애니메이션 본 사람
+**사용한 모델** 
 
-**도전과제(완료한것은 굵게 표시)**
-- GIT의 Pull Request를 요청시 팀원 중 한 명 이상이 코드를 검토후 코멘트를 달아주세요. 리뷰가 끝나면 Merge를 진행
-- 프론트엔드와 백엔드를 별도의 레포지토리로 분리해서 사용
-- 백엔드 개발시 Postman을 활용
-- <u>**jQuery이외에 javascript를 이용한 프론트엔드 구현**</u>
-- Flask API 모듈화 - 개인 작업시 app.py에 작업 후 추후 합칠때 모듈화
-- <u>**다양한 모델로 학습, 성능결과를 benchmark(비교)**</u>
-    
-**팀 내 공지**
-- 발표자 : 윤가현
-- 영상촬영 : 전진영
-- 개인이 맡은 기능은 우선 **Github 개인 브랜치에 업로드** (merge는 맨 마지막에)
-- **Github Readme에 각자가 오늘 한 일 업로드**
-- **Notion 개발일정에 자기가 맡은 기능 참조파일 업로드** (추후 코드리뷰 및 팀원 자료 공유용)
-- Github Readme, Wiki는 계속 업데이트
-- 자리비울일 있거나 얘기 나눌때 Gather, Slack으로 소통
-- 미리 정해둔 **폴더**, **파일 경로설정** 지키기
+[custom된 CNN](https://colab.research.google.com/drive/1pmOUV6U1nJE5f10yM2-iDDFp-1W2p1ut?usp=sharing)
 
-### **경로설정**
-![](https://velog.velcdn.com/images/soyoyun/post/158fd15f-ee27-46ca-a630-2c7c2e3e195d/image.png)
+**데이터셋**
 
-        
----
+**[The Simpsons Characters Data](https://www.kaggle.com/datasets/alexattia/the-simpsons-characters-dataset)**
+
+
+
 ### **개발 일정**
-![](https://velog.velcdn.com/images/soyoyun/post/28cb766d-e02f-4ea9-8dfe-60016cb08c69/image.png)
-
-
 ![](https://velog.velcdn.com/images/soyoyun/post/4bc2a1c6-fe19-4f30-a496-898d07b8207a/image.png)
 
----
-### **레이아웃**
-![](https://velog.velcdn.com/images/soyoyun/post/2bc7df3c-c941-4d13-b574-381a28dab5b8/image.png)![](https://velog.velcdn.com/images/soyoyun/post/efceefb8-1181-4391-b284-25f287e8abff/image.gif)
 
----
+### 최종 **레이아웃**
+![](https://velog.velcdn.com/images/soyoyun/post/2bc7df3c-c941-4d13-b574-381a28dab5b8/image.png)
+
+
 ### **API 설계**
 ![](https://velog.velcdn.com/images/soyoyun/post/f4c5feaa-accd-4400-a9e7-a7a258b319c1/image.png)
 
 
 ---
-## **마무리 단계(완성)**
-
-- **브랜치 활용**
-    - **각자 맡은 페이지에 따른 브랜치 생성 후 작업**
-         페이지 작업 마친 뒤 merge 후 파일 합치기 진행 → 추가해야할 사항이나 개인이 실험해볼 사항 있으면 또다른 브랜치 생성 후 작업 → 최종 merge
-
-![](https://velog.velcdn.com/images/soyoyun/post/8c7bcbda-1dbd-45f2-9c86-89a99748f9da/image.png)
-
-    
-![](https://velog.velcdn.com/images/soyoyun/post/8425a798-64f8-45b7-935f-97aa0237de8c/image.png)
-
----
-
-    
+### 제작 완료**
+   
+   
 ### 사용된 머신러닝 모델
 **[custom된 CNN 모델 이용](https://colab.research.google.com/drive/1pmOUV6U1nJE5f10yM2-iDDFp-1W2p1ut?usp=sharing)**
-    
----
-## **구현한 페이지 정리**
-    
-### 사용한 기능 및 라이브러리
-Python, Tensorflow, Flask, Jinja2, Axios, Ajax, CSS, HTML, JavaScript, Firebase
-    
+
+
 ### 머신러닝 모델 실험 결과
  - 각각 다른 모델 3개로 실험 해본 결과 상이한 결과를 보이거나 유의미한 차이가 나지 않았음.
 - tensorflow로 설계된 CNN 모델 2개, pytorch로 설계된 Resnet18 모델 1개
+
 
 **모델 실험 결과**<br>
 **1) [custom_1 CNN (92%)](https://colab.research.google.com/drive/1pmOUV6U1nJE5f10yM2-iDDFp-1W2p1ut?usp=sharing) : 이번 프로젝트에서 사용됨**
@@ -257,7 +128,7 @@ Python, Tensorflow, Flask, Jinja2, Axios, Ajax, CSS, HTML, JavaScript, Firebase
         Epoch 50/50
         189/189 [==============================] - 90s 477ms/step - loss: 0.3779 - accuracy: 0.8928 - val_loss: 0.4056 - val_accuracy: 0.9229
 ```
-        
+ 
 2) [custom_2 CNN (95%)](https://colab.research.google.com/drive/1ecvw5GMOvepKF6Q7t6EwyyHAtH9rCWRf?usp=sharing)
 
 <img src="https://velog.velcdn.com/images/soyoyun/post/4831eaf1-a18f-461e-84b5-4861de984911/image.png" width=400px height=300px>
@@ -270,9 +141,7 @@ Python, Tensorflow, Flask, Jinja2, Axios, Ajax, CSS, HTML, JavaScript, Firebase
 **드라이브에서 머신러닝 파일 공유하며 프로젝트 진행**
 ![](https://velog.velcdn.com/images/soyoyun/post/8d0e8160-18b6-44e1-8ab8-0a66dae351e0/image.png)
 
----
-## 기능 시연
----
+
 ### 메인페이지-결과페이지
    ![](https://velog.velcdn.com/images/soyoyun/post/e238a6dd-3753-4d17-a808-283063805ee0/image.gif)
 
@@ -309,13 +178,6 @@ Python, Tensorflow, Flask, Jinja2, Axios, Ajax, CSS, HTML, JavaScript, Firebase
 ![](https://velog.velcdn.com/images/soyoyun/post/c3c9264c-c3af-46be-aa2d-c45315b1f049/image.gif)
 
 
----
-### 시연 영상
-
-**아래 이미지 클릭시 시연영상으로 이동합니다 😁**
-[![클릭시 시연영상으로 이동](https://velog.velcdn.com/images/soyoyun/post/a8097334-73dc-41e2-ad5f-dbc0b0a760ff/image.png)](https://www.youtube.com/watch?v=fsRijEg7DeM&ab_channel=%EC%A0%84%EC%A7%84%EC%98%81)
-
----
 ## **발표 후 피드백**
 
 - 모달에 댓글 달고 삭제시 새로고침되는 부분 다른 방법 구상하기
@@ -339,11 +201,6 @@ from descripition import des
 #description 들어갈 곳에
 description = des()
 ```
-
----
-## [프로젝트 페이지 노션으로 보기(클릭)](https://tangy-note.notion.site/Do-u-know-all-the-Simpson-s-f5536bfaaff34636a922d09b5e696917)
-
----
 
 **[ 매일 기록 _ 진영 ]**
 
