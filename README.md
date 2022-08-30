@@ -1,17 +1,5 @@
 # 🍩 Do u know all the Simpson's?
 
-## 🔜 목차
-1. 프로젝트 소개  
-2. 팀 구성  
-3. Stack
-4. Stack & Library Version
-5. 주요 기능  
-6. Troubleshooting
-7. Architecture
-8. ERD
-9. API
-10. Layout
-
 ## 📄 프로젝트 소개
 심슨 사진 입력시 머신러닝 모델이 학습한 데이터를 바탕으로 캐릭터 이름을 출력해주는 서비스 + 사용자가 해당 캐릭터에 관련한 내용을 자유롭게 추가하고 삭제할 수 있는 서비스
 
